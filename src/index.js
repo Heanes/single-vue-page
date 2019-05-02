@@ -1,3 +1,12 @@
-let element = document.createElement('h1');
-element.innerText = 'Hello world, this is single vue page template.';
-document.body.appendChild(element);
+import Vue from 'vue';
+import App from './views/App.vue';
+import router from './router/index.js';
+import store from './store/index.js';
+
+Vue.config.productionTip = false;
+
+new Vue({
+  router,
+  store,
+  render: h => h(App)
+}).$mount('#app');
