@@ -1,6 +1,7 @@
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
-
 const path = require('path');
+
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const webpackConfig = {
   entry: {
@@ -35,7 +36,12 @@ const webpackConfig = {
   resolve: {},
 
   plugins: [
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'src/public/index.html',
+      xhtml: true,
+    })
   ],
 
   externals: {},
