@@ -4,6 +4,13 @@
 # build
 dist
 
+# cache
+.sass-cache
+
+# idea auto build file
+src/views/static/css/**/*.css
+src/**/*.map
+
 # Logs
 logs
 *.log

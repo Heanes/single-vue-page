@@ -1,62 +1,24 @@
-const path = require('path');
-
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
 const webpackConfig = {
-  entry: {
-    index: './src/index.js'
-  },
-
-  output: {
-    filename: 'js/[name].[hash:8].js',
-    publicPath: '/',
-    path: path.resolve(__dirname, '../dist'),
-  },
-
-  module: {
-    rules: [
-      {
-        test: /\.vue$/,
-        use: [
-          'vue-loader'
-        ],
-        exclude: /node_modules|vendor/
-      },
-      {
-        test: /\.css$/,
-        use: [
-          'vue-style-loader',
-          'css-loader'
-        ]
-      }
-    ]
-  },
-
-  resolve: {},
-
-  plugins: [
-    new VueLoaderPlugin(),
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: 'src/public/index.html',
-      xhtml: true,
-    })
-  ],
-
-  externals: {},
-
-  devServer: {
-    hot: true,                  // 热加载
-  },
-
-  optimization: {},
-
-  stats: {},
 
   mode: 'production',
 
-  devtool: 'eval-source-map'
+  entry: require('./base/entry.config.js'),
+
+  output: require('./production/output.production.config.js'),
+
+  module: require('./production/module.production.config.js'),
+
+  resolve: require('./base/resolve.config.js'),
+
+  plugins: require('./production/plugins.production.config.js'),
+
+  externals: {},
+
+  optimization: require('./production/optimization.production.config.js'),
+
+  stats: require('./production/stats.production.config.js'),
+
+  devtool: 'nosources-source-map'
 };
 
 module.exports = webpackConfig;
