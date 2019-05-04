@@ -20,6 +20,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
+const BannerPlugin = require('./plugin/BannerPlugin.config.js');
+
 let plugins = [
   // 清理构建目录
   new CleanWebpackPlugin(),
@@ -48,6 +50,9 @@ let plugins = [
       cache: true
     }
   ])*/
+
+  // 添加banner
+  BannerPlugin
 
 ];
 

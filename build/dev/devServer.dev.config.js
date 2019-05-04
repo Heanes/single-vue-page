@@ -14,7 +14,7 @@ let devServer = {
   compress: true,
   inline: true,               // 可以监控js变化
   clientLogLevel: 'warning',  // 热更新时console日志简化
-  // quiet: true,                // 简化控制台输出信息 necessary for FriendlyErrorsPlugin
+  quiet: true,                // 简化控制台输出信息 necessary for FriendlyErrorsPlugin
   // 代理
   proxy: proxyConfig,
   overlay: config.dev.errorOverlay ? {warnings: false, errors: true} : false, // 当出现编译器错误或警告时，在浏览器中显示全屏覆盖层。
