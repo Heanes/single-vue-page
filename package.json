@@ -38,7 +38,7 @@
     "friendly-errors-webpack-plugin": "^1.7.0",
     "portfinder": "^1.0.20",
     "webpack": "^4.30.0",
-    "webpack-cli": "^3.3.1",
+    "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.3.1",
     "webpack-module-hot-accept": "^1.0.5"
   },
