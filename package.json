@@ -43,6 +43,7 @@
     "webpack-module-hot-accept": "^1.0.5"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.6",
     "vuex": "^3.1.0"
