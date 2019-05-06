@@ -7,7 +7,7 @@
 const config = require('../config/config.js');
 
 module.exports = {
-  filename: `${config.dirs.staticDirName}/js/[name].[hash:8].js`,
+  filename: `[name].js`,
   publicPath: '/',
-  path: config.dirs.distDir
+  path: `${config.dirs.distDir}/${config.dirs.staticDirName}/js`
 };
