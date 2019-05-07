@@ -19,12 +19,12 @@ let devServer = {
   proxy: proxyConfig,
   overlay: config.dev.errorOverlay ? {warnings: false, errors: true} : false, // 当出现编译器错误或警告时，在浏览器中显示全屏覆盖层。
   // 使用history模式后，本地刷新页面后cannot get问题解决
-  /*historyApiFallback: {
+  historyApiFallback: {
+    // 当路径中使用.点号时，使用此配置可以避免刷新后找不到的问题
+    disableDotRule: true,
     rewrites: [
-      // 404页面
-      { from: /./, to: '/404.html' }
+      {from: /./, to: '/index.html'}
     ]
-  }*/
-  historyApiFallback: true
+  }
 };
 module.exports = devServer;
