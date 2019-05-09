@@ -22,6 +22,17 @@ modulesConfig.rules.push(
           sourceMap: true,
         }
       },
+      // @see https://github.com/postcss/postcss-loader
+      {
+        loader: 'postcss-loader',
+        options: {
+          config: {
+            path: 'build/config/'
+
+          },
+          sourceMap: true,
+        }
+      },
       'sass-loader'
     ],
     include: config.dirs.srcRootDir,
