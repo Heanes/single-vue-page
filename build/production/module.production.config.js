@@ -38,6 +38,29 @@ modulesConfig.rules.push(
     include: config.dirs.srcRootDir,
     exclude: /node_modules|vendor/
   },
+  {
+    enforce: 'pre',
+    test: /\.(vue|([jt])sx?)$/,
+    exclude: [
+      /node_modules/
+    ],
+    use: [
+      /* config.module.rule('eslint').use('eslint-loader') */
+      {
+        loader: 'eslint-loader',
+        options: {
+          extensions: [
+            '.js',
+            '.jsx',
+            '.vue'
+          ],
+          cache: true,
+          emitWarning: true,
+          emitError: false
+        }
+      }
+    ]
+  }
 );
 
 module.exports = modulesConfig;
