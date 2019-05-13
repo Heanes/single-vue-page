@@ -22,7 +22,7 @@ export default {
     // 返回api接口地址
     getApiServerUrl (){
       let url = this.apiServerUrls[this.env];
-      return url || undefined ;
+      return url || undefined;
     }
   }
 }

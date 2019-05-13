@@ -7,7 +7,7 @@ axios.defaults.baseURL = siteConfig.api.getApiServerUrl();
 // axios.defaults.timeout = 1000;
 // axios.defaults.withCredentials=true
 
-/*// 请求拦截器
+/* // 请求拦截器
 axios.interceptors.request.use(
   config => {
     return config;
@@ -26,8 +26,7 @@ axios.interceptors.response.use(
   function (error) {
     return Promise.resolve(error);
   }
-);*/
-
+); */
 
 /**
  * @doc 处理异常
