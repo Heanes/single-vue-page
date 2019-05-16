@@ -2,8 +2,8 @@ let urls = {
 
   /* ****************************** common 公用 ****************************** */
   common: {
-    get: {},
-    post: {
+    post: {},
+    get: {
       /**
        * @doc 获取基础信息，传入不同参数获取对应数据[setting, navList, announcement, friendlyLink]
        * @param params

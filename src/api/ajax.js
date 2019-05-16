@@ -104,7 +104,7 @@ export default {
     getApiNames.forEach(apiName => {
       // 生成一个方法，params为参数，callback为回调函数，config为调用的其他配置
       target[apiName] = (params, callBack, config) => {
-        requestMethod = this.allowMethod[requestMethod] != null ? requestMethod : this.allowMethod[0];
+        requestMethod = this.allowMethod.includes(requestMethod) != null ? requestMethod : this.allowMethod[0];
         // method = 'get';
 
         // axios调用get时，需要包一层{params: param}，这里统一一下
