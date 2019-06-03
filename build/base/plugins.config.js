@@ -10,7 +10,7 @@ const config = require('../config/config.js');
 const webpack = require('webpack');
 
 // @see
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 // @see https://github.com/webpack-contrib/copy-webpack-plugin#options
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -33,7 +33,7 @@ let plugins = [
   new HtmlWebpackPlugin({
     filename: 'index.html',
     template: 'src/public/index.html',
-    xhtml: true,
+    xhtml: true
   }),
 
   // 将对象暴露给webpack
