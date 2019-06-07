@@ -28,7 +28,7 @@ const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 
 const config = require('./config/config.js');
 const buildUtils = require('./utils/buildUtils.js');
-const packageConfig = require('../package.json');
+const packageConfig = require(process.cwd() + '/package.json');
 
 module.exports = new Promise((resolve, reject) => {
   portfinder.basePort = process.env.PORT || config.dev.port;
@@ -43,14 +43,16 @@ module.exports = new Promise((resolve, reject) => {
       webpackConfig.devServer.port = port;
 
       // Add FriendlyErrorsPlugin
-      webpackConfig.plugins.push(new FriendlyErrorsPlugin({
-        compilationSuccessInfo: {
-          messages: [`Your application is running here: http://${webpackConfig.devServer.host}:${port}`]
-        },
-        onErrors: config.dev.notifyOnErrors
-          ? buildUtils.createNotifierCallback(packageConfig)
-          : undefined
-      }));
+      if (config.dev.useFriendlyNotify) {
+        webpackConfig.plugins.push(new FriendlyErrorsPlugin({
+          compilationSuccessInfo: {
+            messages: [`Your application is running here: http://${webpackConfig.devServer.host}:${port}`]
+          },
+          onErrors: config.dev.notifyOnErrors
+            ? buildUtils.createNotifierCallback(packageConfig)
+            : undefined
+        }));
+      }
 
       resolve(webpackConfig);
     }
