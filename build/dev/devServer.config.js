@@ -1,6 +1,6 @@
 const config = require('../config/config.js');
 
-const proxyConfig = require('./devServer/proxy.dev.config.js');
+const proxyConfig = require('./devServer/proxy.config.js');
 
 let devServer = {
   contentBase: config.dirs.distDir,
