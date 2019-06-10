@@ -11,10 +11,8 @@ const pluginsConfig = require('../base/plugins.config.js');
 pluginsConfig.push(
 
   // 启用模块热替换(Enable Hot Module Replacement - HMR)
-  new webpack.HotModuleReplacementPlugin(),
+  new webpack.HotModuleReplacementPlugin()
 
-  // 在输出阶段时，遇到编译错误跳过
-  new webpack.NoEmitOnErrorsPlugin()
 );
 
 module.exports = pluginsConfig;
