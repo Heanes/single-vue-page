@@ -4,21 +4,19 @@ const webpackConfig = {
 
   entry: require('./base/entry.config.js'),
 
-  output: require('./dev/output.dev.config.js'),
+  output: require('./dev/output.config.js'),
 
-  module: require('./dev/module.dev.config.js'),
+  module: require('./dev/module.config.js'),
 
   resolve: require('./base/resolve.config.js'),
 
-  plugins: require('./dev/plugins.dev.config.js'),
+  plugins: require('./dev/plugins.config.js'),
 
   externals: {},
 
-  devServer: require('./dev/devServer.dev.config.js'),
+  devServer: require('./dev/devServer.config.js'),
 
-  optimization: require('./dev/optimization.dev.config.js'),
-
-  stats: require('./dev/stats.dev.config.js'),
+  optimization: require('./dev/optimization.config.js'),
 
   devtool: 'eval-source-map'
 };

@@ -11,7 +11,8 @@ export default {
     // api接口地址
     apiServerUrls: {
       // mock地址
-      mock: 'http://mock.example.com',
+      // mock: 'http://mock.example.com',
+      mock: 'http://localhost:10086',
       // 开发环境
       dev: '/api/',
       // test地址

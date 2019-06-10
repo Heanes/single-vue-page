@@ -21,7 +21,6 @@ let optimization = {
         priority: 1
       }
     }
-  },
-  namedModules: true,
+  }
 };
 module.exports = optimization;
