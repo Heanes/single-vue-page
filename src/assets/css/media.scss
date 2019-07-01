@@ -1,0 +1,28 @@
+@charset "UTF-8";
+/**
+ * @doc 媒体样式
+ * @author Heanes
+ * @time 2019-06-28 16:51:31 周五
+ */
+.media-page{
+  .image-section{
+    .img-list{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      .img-item{
+        display: inline-block;
+        vertical-align: top;
+        width: 300px;
+        height: 240px;
+        line-height: 240px;
+        .img{
+          max-width: 100%;
+          max-height: 100%;
+          text-align: center;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}

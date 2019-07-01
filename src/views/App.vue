@@ -1,8 +1,16 @@
 <template>
   <div id="app">
-    <router-link to="/">index</router-link>
-    <router-link to="about">about</router-link>
-    <router-view/>
+    <div class="header">
+      <div class="nav">
+        <router-link to="/" class="nav-item">index</router-link>
+        <router-link to="about" class="nav-item">about</router-link>
+        <router-link to="icon" class="nav-item">icon</router-link>
+        <router-link to="media" class="nav-item">icon</router-link>
+      </div>
+    </div>
+    <div class="main">
+      <router-view/>
+    </div>
   </div>
 </template>
 

@@ -9,9 +9,9 @@ modulesConfig.rules.push(
       'css-loader',
       'sass-loader'
     ]
-  },
+  }
   // js 处理
-  /*{
+  /* {
     test: /\.js$/,
     use: [
       {
@@ -24,7 +24,7 @@ modulesConfig.rules.push(
       // @see https://github.com/loggur/webpack-module-hot-accept. 使用此loader时，不要在源js文件中写'module.hot'(即使注释了也不行)
       'webpack-module-hot-accept' // add this last, will change when update js file
     ]
-  }*/
+  } */
 );
 
 module.exports = modulesConfig;

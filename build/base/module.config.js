@@ -17,8 +17,8 @@ module.exports = {
       exclude: /node_modules|vendor/
     },
     // 图片等资源文件
-    /*{
-      test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+    {
+      test: /\.(png|jpe?g|gif|svg)(\?.*)?$/i,
       use: [
         {
           loader: 'url-loader',
@@ -28,25 +28,27 @@ module.exports = {
           }
         }
       ]
-      /!* include: dirVars.srcRootDir,
-       exclude: /node_modules|vendor/ *!/
+      /* include: dirVars.srcRootDir,
+       exclude: /node_modules|vendor/ */
     },
+    // 多媒体文件
     {
-      test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+      test: /\.(mp4|webm|ogg|mp3|wav|flac|aac|ape)(\?.*)?$/i,
       use: [
         {
-          loader: 'url-loader',
+          loader: 'file-loader',
           options: {
             limit: 4,
             // useRelativePath: true,
             name: 'static/media/[name].[hash:8].[ext]'
           }
         }
-      ]
-
+      ],
+      include: config.dirs.srcRootDir
     },
+    // 字体及图标文件
     {
-      test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+      test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/i,
       use: [
         {
           loader: 'url-loader',
@@ -57,6 +59,20 @@ module.exports = {
           }
         }
       ]
-    }*/
+    },
+    // ico
+    {
+      test: /\.(ico)$/i,
+      use: [
+        {
+          loader: 'file-loader',
+          options: {
+            limit: 50,
+            name: 'static/ico/[name].[ext]' // 相对于path的路径
+          }
+        }
+      ]
+
+    }
   ]
 };

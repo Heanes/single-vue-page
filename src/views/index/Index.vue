@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import common from '../static/js/common.js';
-import '../static/css/common/common.scss';
+import common from '@/assets/js/common.js';
+import '@/assets/css/common/common.scss';
 
 import api from '@/api/index.js';
 import HelloWorld from '@/components/HelloWorld.vue';

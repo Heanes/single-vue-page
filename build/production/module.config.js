@@ -19,7 +19,7 @@ modulesConfig.rules.push(
       {
         loader: 'css-loader',
         options: {
-          sourceMap: true,
+          sourceMap: true
         }
       },
       // @see https://github.com/postcss/postcss-loader
@@ -30,7 +30,7 @@ modulesConfig.rules.push(
             path: 'build/config/'
 
           },
-          sourceMap: true,
+          sourceMap: true
         }
       },
       'sass-loader'
@@ -45,7 +45,6 @@ modulesConfig.rules.push(
       /node_modules/
     ],
     use: [
-      /* config.module.rule('eslint').use('eslint-loader') */
       {
         loader: 'eslint-loader',
         options: {

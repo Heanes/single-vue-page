@@ -19,6 +19,16 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ '../views/about/About.vue')
+    },
+    {
+      path: '/icon',
+      name: 'icon',
+      component: () => import(/* webpackChunkName: "icon" */ '../views/icon/Icon.vue')
+    },
+    {
+      path: '/media',
+      name: 'media',
+      component: () => import(/* webpackChunkName: "media" */ '../views/media/Media.vue')
     }
   ],
   // 记录之前保存的滚动条位置
