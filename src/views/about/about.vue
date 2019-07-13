@@ -1,6 +1,9 @@
 <template>
-  <div class="about">
-    <h2>Yeah, this is about page.</h2>
+  <div class="page-about">
+    <div class="about">
+      <h2>Yeah, this is about page.</h2>
+    </div>
+    <router-view/>
   </div>
 </template>
 

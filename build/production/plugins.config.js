@@ -33,7 +33,7 @@ pluginsConfig.push(
     filename: `${config.dirs.staticDirName}/css/[name].[contenthash:8].css`
   }),
 
-  bundleAnalyzerPlugin
+  // bundleAnalyzerPlugin
 );
 
 module.exports = pluginsConfig;

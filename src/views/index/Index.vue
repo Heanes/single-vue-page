@@ -10,7 +10,7 @@
 import common from '@/assets/js/common.js';
 import '@/assets/css/common/common.scss';
 
-import api from '@/api/index.js';
+import http from '@/utils/http/index.js';
 import HelloWorld from '@/components/HelloWorld.vue';
 
 export default {
@@ -30,7 +30,7 @@ export default {
     common.common();
   },
   async mounted () {
-    this.baseCommon = await api.common.queryBaseCommon();
+    this.baseCommon = await http.common.queryBaseCommon();
   }
 }
 </script>

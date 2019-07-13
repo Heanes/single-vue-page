@@ -6,6 +6,7 @@ Vue.use(Router);
 
 export default new Router({
   mode: 'history',
+  base: '/frontend/single-vue-page',
   routes: [
     {
       path: '/',
@@ -14,11 +15,16 @@ export default new Router({
     },
     {
       path: '/about',
-      name: 'about',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ '../views/about/About.vue')
+      component: () => import(/* webpackChunkName: "about" */ '../views/about/About.vue'),
+      children: [
+        {
+          path: 'concat',
+          component: () => import(/* webpackChunkName: "concat" */ '../views/about/Contact.vue')
+        }
+      ]
     },
     {
       path: '/icon',

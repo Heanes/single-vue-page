@@ -20,6 +20,8 @@ export default {
       // 线上环境
       production: '/api/'
     },
+    // 接口调用超时时间
+    timeout: 5000,
     // 返回api接口地址
     getApiServerUrl (){
       let url = this.apiServerUrls[this.env];

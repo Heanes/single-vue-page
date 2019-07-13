@@ -1,12 +1,11 @@
-import ajax from './ajax.js'
-
+import http from './http.js'
 export default {
   /**
    * @doc 装载api，生成方法
    * @param apiConfig api配置
    * @param serverBasePath 基础url
    */
-  load (apiConfig, serverBasePath = '') {
+  loadApiConfig (apiConfig, serverBasePath = '') {
     let apiGroups = Object.keys(apiConfig);
     let apis = {};
     apiGroups.forEach(group => {
@@ -15,7 +14,7 @@ export default {
       if (apiConfigItem) {
         let apiConfigType = Object.keys(apiConfigItem);
         apiConfigType.forEach(type => {
-          ajax.makeApiMethod(apiConfigItem[type], serverBasePath, allApis, type)
+          http.makeApiMethod(apiConfigItem[type], serverBasePath, allApis, type)
         });
       }
       apis[group] = allApis

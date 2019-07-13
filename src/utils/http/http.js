@@ -1,5 +1,5 @@
 import axios from 'axios';
-import siteConfig from '../config/index.js';
+import siteConfig from '../../config/index.js';
 
 // 添加一个请求拦截器
 axios.defaults.baseURL = siteConfig.api.getApiServerUrl();
@@ -76,17 +76,18 @@ function handleAxiosResponse (response, callback) {
 }
 
 export default {
-  // 允许的ajax方法
+  http: axios,
+  // 允许的请求方法
   allowMethod: ['get', 'post'],
   get (url, params, callback) {
-    return axios.get(url, params).then(response => {
+    return this.http.get(url, params).then(response => {
       return handleAxiosResponse(response, callback);
     }).catch(function (error) {
       return handleAxiosException(error);
     });
   },
   post (url, params, callback, config) {
-    return axios.post(url, params, config).then(response => {
+    return this.http.post(url, params, config).then(response => {
       return handleAxiosResponse(response, callback);
     }).catch(function (error) {
       return handleAxiosException(error);
