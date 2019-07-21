@@ -13,7 +13,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // @see https://github.com/webpack-contrib/copy-webpack-plugin#options
 // const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const bundleAnalyzerPlugin = require('./plugin/BundleAnalyzerPlugin.config.js');
+// const bundleAnalyzerPlugin = require('./plugin/BundleAnalyzerPlugin.config.js');
 
 pluginsConfig.push(
 
@@ -31,7 +31,7 @@ pluginsConfig.push(
   // 压缩css
   new MiniCssExtractPlugin({
     filename: `${config.dirs.staticDirName}/css/[name].[contenthash:8].css`
-  }),
+  })
 
   // bundleAnalyzerPlugin
 );

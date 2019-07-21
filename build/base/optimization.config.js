@@ -1,4 +1,4 @@
-let optimization = {
+const optimization = {
   runtimeChunk: {
     name: 'manifest'    // 公共基础资源包
   },

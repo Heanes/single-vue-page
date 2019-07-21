@@ -33,7 +33,7 @@
  */
 function getFormatDate (format, date, language) {
   // 自动补零
-  let zeroize = function (value, length) {
+  const zeroize = function (value, length) {
     if (!length) length = 2;
     value = String(value);
     let zeros = '';
@@ -49,7 +49,7 @@ function getFormatDate (format, date, language) {
   language = language || 'chinese';
 
   // 星期字符库
-  let week = {
+  const week = {
     chinese: {
       short: ['周天', '周一', '周二', '周三', '周四', '周五', '周六'],
       long: ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
@@ -61,7 +61,7 @@ function getFormatDate (format, date, language) {
   };
 
   // 月份字符库
-  let month = {
+  const month = {
     chinese: {
       short: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
       long: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
@@ -73,12 +73,12 @@ function getFormatDate (format, date, language) {
   };
 
   // 语言别名库
-  let languageLib = {
+  const languageLib = {
     chinese: ['chinese', 'cn', 'zh', 'zh-cn'],
     english: ['english', 'en', 'us', 'en-us']
   };
-  for (let field in languageLib) {
-    let item = languageLib[field];
+  for (const field in languageLib) {
+    const item = languageLib[field];
     if (item[language]) {
       language = field;
       break;

@@ -6,7 +6,7 @@
 const utils = require('../utils/utils');
 const packageConfig = require(process.cwd() + '/package.json');
 
-let config = {
+const config = {
   appName: packageConfig.name,
   appVersion: packageConfig.version,
   appAuthor: packageConfig.author,

@@ -1,6 +1,6 @@
 const config = require('../config/config.js');
 
-let modulesConfig = require('../base/module.config.js');
+const modulesConfig = require('../base/module.config.js');
 
 // @see https://github.com/webpack-contrib/mini-css-extract-plugin
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');

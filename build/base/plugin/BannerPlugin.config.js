@@ -6,11 +6,11 @@
 
 const webpack = require('webpack');
 
-let config = require('../../config/config.js');
+const config = require('../../config/config.js');
 
 // 生成文件添加自定义banner
 // @see https://webpack.js.org/plugins/banner-plugin/
-let BannerPluginConfig = new webpack.BannerPlugin({
+const BannerPluginConfig = new webpack.BannerPlugin({
   banner: () => {
     return `${config.appName} ${config.appVersion}\n` +
       `@author: ${config.appAuthor}\n` +

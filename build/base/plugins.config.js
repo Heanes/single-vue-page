@@ -13,7 +13,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const BannerPlugin = require('./plugin/BannerPlugin.config.js');
 
-let plugins = [
+const plugins = [
 
   // vue-loader,
   new VueLoaderPlugin(),

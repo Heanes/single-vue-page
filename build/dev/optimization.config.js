@@ -1,4 +1,4 @@
-let optimization = require('../base/optimization.config.js');
+const optimization = require('../base/optimization.config.js');
 
 optimization.noEmitOnErrors = true;
 

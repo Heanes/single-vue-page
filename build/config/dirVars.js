@@ -1,5 +1,5 @@
 const path = require('path');
-let dirs = {};
+const dirs = {};
 
 dirs.distDirName        = 'dist';
 dirs.srcRootDirName     = 'src';

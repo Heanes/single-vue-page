@@ -1,4 +1,4 @@
-let modulesConfig = require('../base/module.config.js');
+const modulesConfig = require('../base/module.config.js');
 
 modulesConfig.rules.push(
   // sass-scss 处理

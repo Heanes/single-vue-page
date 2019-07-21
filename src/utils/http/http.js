@@ -35,7 +35,7 @@ axios.interceptors.response.use(
  */
 function handleAxiosException (error) {
   if(error){
-    let msg = `${error.config.method} '${error.config.url}' exception: ${error.message}${error.response && error.response.data ? ', ' + error.response.data : ''}`;
+    const msg = `${error.config.method} '${error.config.url}' exception: ${error.message}${error.response && error.response.data ? ', ' + error.response.data : ''}`;
 
     // do something to notify
     console.error(msg);
@@ -57,7 +57,7 @@ function handleAxiosResponse (response, callback) {
       callback && callback(response.data);
       return response.data;
     } else {
-      let msg = `${response.config.method} '${response.config.url}' error: ${response.data.msg}`;
+      const msg = `${response.config.method} '${response.config.url}' error: ${response.data.msg}`;
 
       // do something to notify
       console.error(msg);
@@ -65,7 +65,7 @@ function handleAxiosResponse (response, callback) {
       return response;
     }
   } else {
-    let msg = `${response.config.method} '${response.config.url}' exception: ${response.message}${response.response && response.response.data ? ', ' + response.response.data : ''}`;
+    const msg = `${response.config.method} '${response.config.url}' exception: ${response.message}${response.response && response.response.data ? ', ' + response.response.data : ''}`;
 
     // do something to notify
     console.error(msg);
@@ -101,7 +101,7 @@ export default {
    * @param requestMethod 请求类型，get、post等
    */
   makeApiMethod (source, serverBasePath = '', target, requestMethod) {
-    let getApiNames = Object.keys(source);
+    const getApiNames = Object.keys(source);
     getApiNames.forEach(apiName => {
       // 生成一个方法，params为参数，callback为回调函数，config为调用的其他配置
       target[apiName] = (params, callBack, config) => {
@@ -110,7 +110,7 @@ export default {
 
         // axios调用get时，需要包一层{params: param}，这里统一一下
         if (requestMethod === 'get') {
-          params = {'params': params};
+          params = {params: params};
         }
         return this[requestMethod](serverBasePath + source[apiName], params, callBack, config);
       }
