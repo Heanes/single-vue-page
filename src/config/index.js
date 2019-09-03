@@ -24,7 +24,7 @@ export default {
     timeout: 5000,
     // 返回api接口地址
     getApiServerUrl (){
-      let url = this.apiServerUrls[this.env];
+      const url = this.apiServerUrls[this.env];
       return url || undefined;
     }
   }

@@ -10,7 +10,7 @@
 import common from '@/assets/js/common.js';
 import '@/assets/css/common/common.scss';
 
-import http from '@/utils/http/index.js';
+import http from '@/api/index.js';
 import HelloWorld from '@/components/HelloWorld.vue';
 
 export default {

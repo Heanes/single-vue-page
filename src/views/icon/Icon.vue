@@ -170,17 +170,17 @@ export default {
         target = target.parentNode;
       }
       if (target.tagName.toUpperCase() === 'LI') {
-        let pos = this.getChildIndexInParent(target);
+        const pos = this.getChildIndexInParent(target);
 
         // 清除tab-nav激活样式
-        for(let item of target.parentNode.children){
+        for(const item of target.parentNode.children){
           item.classList.remove('active')
         }
         target.classList.add('active');
 
-        let tabsContainer = document.getElementsByClassName('tabs-container');
-        let tabsContents = tabsContainer[0].children;
-        for(let item of tabsContents){
+        const tabsContainer = document.getElementsByClassName('tabs-container');
+        const tabsContents = tabsContainer[0].children;
+        for(const item of tabsContents){
           item.classList.remove('active')
         }
         tabsContents[pos].classList.add('active');
@@ -194,7 +194,7 @@ export default {
      * @time 2019-06-26 19:44:42 周三
      */
     getChildIndexInParent (ele) {
-      let parent = ele.parentNode;
+      const parent = ele.parentNode;
       return Array.prototype.indexOf.call(parent.children, ele);
     }
   }

@@ -6,13 +6,13 @@ export default {
    * @param serverBasePath 基础url
    */
   loadApiConfig (apiConfig, serverBasePath = '') {
-    let apiGroups = Object.keys(apiConfig);
-    let apis = {};
+    const apiGroups = Object.keys(apiConfig);
+    const apis = {};
     apiGroups.forEach(group => {
-      let apiConfigItem = apiConfig[group];
-      let allApis = {};
+      const apiConfigItem = apiConfig[group];
+      const allApis = {};
       if (apiConfigItem) {
-        let apiConfigType = Object.keys(apiConfigItem);
+        const apiConfigType = Object.keys(apiConfigItem);
         apiConfigType.forEach(type => {
           http.makeApiMethod(apiConfigItem[type], serverBasePath, allApis, type)
         });
