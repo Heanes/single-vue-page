@@ -16,7 +16,7 @@ const BannerPluginConfig = new webpack.BannerPlugin({
       `@author: ${config.appAuthor}\n` +
       `@time: ${config.generateTime}\n` +
       `(c) 2014-${config.copyrightYear} ${config.appAuthor}\n` +
-      `Released under the MIT License.`;
+      'Released under the MIT License.';
   },
   exclude: [
     /vendors.*/     // 排除vendors

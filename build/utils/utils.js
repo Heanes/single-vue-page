@@ -92,9 +92,9 @@ function getFormatDate (format, date, language) {
       case 'dd':
         return zeroize(date.getDate());
       case 'ddd':
-        return week[language]['short'][date.getDay()];
+        return week[language].short[date.getDay()];
       case 'dddd':
-        return week[language]['long'][date.getDay()];
+        return week[language].long[date.getDay()];
       case 'q':
         return Math.floor((date.getMonth() + 3) / 3); // 季度
       case 'M':
@@ -102,9 +102,9 @@ function getFormatDate (format, date, language) {
       case 'MM':
         return zeroize(date.getMonth() + 1);
       case 'MMM':
-        return month[language]['short'][date.getMonth()];
+        return month[language].short[date.getMonth()];
       case 'MMMM':
-        return month[language]['long'][date.getMonth()];
+        return month[language].long[date.getMonth()];
       case 'yy':
         return String(date.getFullYear()).substr(2);
       case 'yyyy':

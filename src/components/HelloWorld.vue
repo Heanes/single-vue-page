@@ -1,6 +1,6 @@
 <template>
   <div class="demo-hello-world">
-    <p>Hello world!</p>
+    <p>Hello world! This is a component content, and come from 'HelloWorld' component</p>
   </div>
 </template>
 

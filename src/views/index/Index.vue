@@ -2,7 +2,7 @@
   <div class="index">
     <h2 class="title">Welcome! This is index page.</h2>
     <HelloWorld/>
-    <p>{{baseCommon}}</p>
+    <pre>{{baseCommon}}</pre>
   </div>
 </template>
 
@@ -30,11 +30,15 @@ export default {
     common.common();
   },
   async mounted () {
-    this.baseCommon = await http.common.queryBaseCommon();
+    this.baseCommon = JSON.stringify(await http.common.queryBaseCommon(), null, 2);
   }
 }
 </script>
 
 <style scoped>
-
+  pre{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 4px;
+  }
 </style>
