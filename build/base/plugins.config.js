@@ -13,6 +13,15 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const BannerPlugin = require('./plugin/BannerPlugin.config.js');
 
+function findPara (param) {
+  let result = '';
+  process.argv.forEach((argv) => {
+    if (argv.indexOf('--' + param) === -1) return;
+    result = argv.split('=')[1];
+  });
+  return result;
+}
+
 const plugins = [
 
   // vue-loader,
@@ -31,8 +40,12 @@ const plugins = [
   }),
 
   // 添加banner
-  BannerPlugin
+  BannerPlugin,
 
+  // 定义npm script得到的参数环境值
+  new webpack.DefinePlugin({
+    __env: JSON.stringify(findPara('env'))
+  })
 ];
 
 module.exports = plugins;

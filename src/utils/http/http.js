@@ -1,11 +1,4 @@
 import axios from 'axios';
-import siteConfig from '../../config/index.js';
-
-// 添加一个请求拦截器
-axios.defaults.baseURL = siteConfig.api.getApiServerUrl();
-// axios.defaults.headers.post['Content-Type'] = 'application/json';
-// axios.defaults.timeout = 1000;
-// axios.defaults.withCredentials=true
 
 // 请求拦截器
 axios.interceptors.request.use(
@@ -35,7 +28,7 @@ axios.interceptors.response.use(
  * @returns {null}
  */
 function handleAxiosException (error) {
-  if(error){
+  if (error) {
     const msg = `${error.config.method} '${error.config.url}' exception: ${error.message}${error.response && error.response.data ? ', ' + error.response.data : ''}`;
 
     // do something to notify
@@ -54,7 +47,7 @@ function handleAxiosException (error) {
  */
 function handleAxiosResponse (response, callback) {
   if (response.data) {
-    if(response.data.code === 0) {
+    if (response.data.code === 0) {
       callback && callback(response.data);
       return response.data;
     } else {
@@ -77,9 +70,28 @@ function handleAxiosResponse (response, callback) {
 }
 
 export default {
+  initialized: false,
   http: axios,
   // 允许的请求方法
   allowMethod: ['get', 'post'],
+  initHttp (apiConfig) {
+    if (this.initialized) return this.http;
+    const axios = this.http;
+    // 1. 设置基础url
+    axios.defaults.baseURL = apiConfig.getApiServerUrl();
+    // 2. 设置超时时间
+    if (apiConfig.timeout > 0) {
+      axios.defaults.timeout = apiConfig.timeout;
+    }
+    //
+    if (apiConfig.withCredentials) {
+      axios.defaults.withCredentials = true
+    }
+    // 3. 设置错误处理方法
+
+    this.http = axios;
+    this.initialized = true;
+  },
   get (url, params, callback) {
     return this.http.get(url, params);
   },
