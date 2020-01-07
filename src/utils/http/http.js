@@ -1,33 +1,11 @@
 import axios from 'axios';
 
-// 请求拦截器
-axios.interceptors.request.use(
-  config => {
-    return config;
-  },
-  error => {
-    handleAxiosException(error);
-    return Promise.reject(error);
-  }
-);
-
-// 添加一个响应拦截器
-axios.interceptors.response.use(
-  function (res) {
-    return handleAxiosResponse(res);
-  },
-  function (error) {
-    handleAxiosException(error);
-    return Promise.resolve(error);
-  }
-);
-
 /**
- * @doc 处理异常
+ * @doc 处理请求异常
  * @param error
  * @returns {null}
  */
-function handleAxiosException (error) {
+function handleAxiosRequestExceptionDefault (error) {
   if (error) {
     const msg = `${error.config.method} '${error.config.url}' exception: ${error.message}${error.response && error.response.data ? ', ' + error.response.data : ''}`;
 
@@ -45,9 +23,9 @@ function handleAxiosException (error) {
  * @param callback
  * @returns {*}
  */
-function handleAxiosResponse (response, callback) {
+function handleAxiosResponseDefault (response, callback) {
   if (response.data) {
-    if (response.data.code === 0) {
+    if (response.data.success) {
       callback && callback(response.data);
       return response.data;
     } else {
@@ -74,7 +52,21 @@ export default {
   http: axios,
   // 允许的请求方法
   allowMethod: ['get', 'post'],
-  initHttp (apiConfig) {
+  /**
+   * 默认处理请求异常处理函数
+   */
+  handleAxiosRequestExceptionDefault: handleAxiosRequestExceptionDefault,
+  /**
+   * 默认请求响应处理函数
+   */
+  handleAxiosResponseDefault: handleAxiosResponseDefault,
+  /**
+   * 初始化http工具
+   * @param apiConfig
+   * @param handleAxiosRequestException 请求时异常处理方法
+   * @param handleAxiosResponse 请求正常情况的处理方法
+   */
+  initHttp (apiConfig, handleAxiosRequestException, handleAxiosResponse) {
     if (this.initialized) return this.http;
     const axios = this.http;
     // 1. 设置基础url
@@ -88,12 +80,36 @@ export default {
       axios.defaults.withCredentials = true
     }
     // 3. 设置错误处理方法
+    handleAxiosRequestException = handleAxiosRequestException || handleAxiosRequestExceptionDefault;
+    handleAxiosResponse = handleAxiosResponse || handleAxiosResponseDefault;
+    // 请求拦截器
+    axios.interceptors.request.use(
+      config => {
+        return config;
+      },
+      error => {
+        handleAxiosRequestExceptionDefault(error);
+        return Promise.reject(error);
+      }
+    );
+
+    // 添加一个响应拦截器
+    axios.interceptors.response.use(
+      function (res) {
+        return handleAxiosResponse(res);
+      },
+      function (error) {
+        handleAxiosRequestExceptionDefault(error);
+        return Promise.resolve(error);
+      }
+    );
 
     this.http = axios;
     this.initialized = true;
+    return this;
   },
   get (url, params, callback) {
-    return this.http.get(url, params);
+    return this.http.get(url, {params: params});
   },
   post (url, params, callback, config) {
     return this.http.post(url, params, config);
