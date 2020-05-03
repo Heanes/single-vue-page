@@ -9,7 +9,7 @@
  */
 function parseUrls (urls, env = 'production') {
   const urlData = {};
-  for(const key in urls){
+  Object.keys(urls).forEach(key => {
     const item = urls[key];
     const temType = typeof item;
     // console.log('key:', key, ' item: ', item);
@@ -25,7 +25,7 @@ function parseUrls (urls, env = 'production') {
       // console.log('item is function: ', item);
       urlData[key] = item()[env] ? item()[env] : item().base;
     }
-  }
+  })
   return urlData;
 }
 

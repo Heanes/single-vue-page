@@ -13,7 +13,7 @@ module.exports = {
       use: [
         'vue-loader'
       ],
-      include: config.dirs.srcRootDir,
+      include: config.dirVars.srcRootDir,
       exclude: /node_modules|vendor/
     },
     // 图片等资源文件
@@ -23,13 +23,14 @@ module.exports = {
         {
           loader: 'url-loader',
           options: {
+            esModule: false,
             limit: 4,
             name: 'static/img/[name].[hash:8].[ext]'
           }
         }
-      ]
-      /* include: dirVars.srcRootDir,
-       exclude: /node_modules|vendor/ */
+      ],
+      include: config.dirVars.srcRootDir,
+      exclude: /node_modules|vendor/
     },
     // 多媒体文件
     {
@@ -44,7 +45,7 @@ module.exports = {
           }
         }
       ],
-      include: config.dirs.srcRootDir
+      include: config.dirVars.srcRootDir
     },
     // 字体及图标文件
     {
@@ -72,7 +73,6 @@ module.exports = {
           }
         }
       ]
-
     }
   ]
 };

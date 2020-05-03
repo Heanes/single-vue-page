@@ -10,7 +10,7 @@ export default {
    */
   getEnvByBuildEnv () {
     // eslint-disable-next-line no-undef
-    console.log('env: ', __env + '');
+    // console.log('env: ', __env + '');
     // console.log(process);
     // console.log(process.argv);
     // console.log(process.env.NODE_ENV);

@@ -30,7 +30,7 @@ pluginsConfig.push(
   }),
   // 压缩css
   new MiniCssExtractPlugin({
-    filename: `${config.dirs.staticDirName}/css/[name].[contenthash:8].css`
+    filename: `${config.dirVars.staticDirName}/css/[name].[contenthash:8].css`
   })
 
   // bundleAnalyzerPlugin

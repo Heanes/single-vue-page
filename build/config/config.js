@@ -3,7 +3,7 @@
  * @author Heanes
  * @time 2019-05-03 12:01:17 周五
  */
-const utils = require('../utils/utils');
+const utils = require('../utils/utils.js');
 const packageConfig = require(process.cwd() + '/package.json');
 
 const config = {
@@ -16,7 +16,7 @@ const config = {
   // 构建目标
   buildTarget: 'production',
 
-  dirs: require('./dirVars.js'),
+  dirVars: require('./dirVars.js'),
 
   dev: {
     host: 'localhost',        // 地址 can be overwritten by process.env.HOST

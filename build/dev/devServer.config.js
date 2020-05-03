@@ -3,7 +3,7 @@ const config = require('../config/config.js');
 const proxyConfig = require('./devServer/proxy.config.js');
 
 const devServer = {
-  contentBase: config.dirs.distDir,
+  contentBase: config.dirVars.distDir,
   // publicPath:'http://localhost:8080/',
   disableHostCheck: true,
   host: config.dev.host,

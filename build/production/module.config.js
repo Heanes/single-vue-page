@@ -35,7 +35,7 @@ modulesConfig.rules.push(
       },
       'sass-loader'
     ],
-    include: config.dirs.srcRootDir,
+    include: config.dirVars.srcRootDir,
     exclude: /node_modules|vendor/
   },
   {
