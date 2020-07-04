@@ -10,6 +10,7 @@
 <script>
 import common from '@/assets/js/common.js';
 import '@/assets/css/common/common.scss';
+import axios from 'axios';
 
 import HelloWorld from '@/components/HelloWorld.vue';
 
@@ -29,6 +30,9 @@ export default {
 
   created () {
     common.common();
+    axios.get('/base/common').then(response => {
+      console.log(response.data);
+    })
   },
   async mounted () {
     // this.baseCommon = JSON.stringify(await http.common.queryBaseCommon(), null, 2);
@@ -40,12 +44,12 @@ export default {
     }); */
 
     // promise方式调用取值
-    this.$http.post(this.$api.common.queryBaseCommon, {}).then((res) => {
+    /* this.$http.post(this.$api.common.queryBaseCommon, {}).then((res) => {
       this.baseCommon = res;
-    });
+    }); */
 
     // async和await方式调用取值
-    this.navList = JSON.stringify(await this.$http.post(this.$api.common.queryNavList, {}), null, 2);
+    // this.navList = JSON.stringify(await this.$http.post(this.$api.common.queryNavList, {}), null, 2);
   }
 }
 </script>

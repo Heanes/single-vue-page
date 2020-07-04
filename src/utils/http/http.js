@@ -49,7 +49,7 @@ function handleAxiosResponseDefault (response, callback) {
 
 export default {
   initialized: false,
-  http: axios,
+  http: axios.create(),
   // 允许的请求方法
   allowMethod: ['get', 'post'],
   /**

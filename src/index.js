@@ -6,6 +6,7 @@ import store from './store/index.js';
 import siteConfig from './config/index.js';
 import httpUtil from './utils/http/http.js';
 import apiUtil from './api/index.js';
+import {enableMock} from './mock'
 
 Vue.config.productionTip = false;
 
@@ -19,7 +20,9 @@ Vue.prototype.$http = httpUtil.http;
 // 挂载api接口配置
 Vue.prototype.$api = apiUtil.getApiUrls(siteConfig.env);
 
-console.log('api config: ', Vue.prototype.$api);
+// console.log('api config: ', Vue.prototype.$api);
+
+enableMock()
 
 new Vue({
   router,
